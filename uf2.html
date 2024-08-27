@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+	<meta content="width=device-width" name="viewport">
+  <meta name="theme-color" content="#222222">
+	<title>Install domino4 uf2 bootloader</title>
+ <script
+  type="module"
+  src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+  </script>
+	<style>
+		body {
+			font-family: Verdana, Helvetica, sans-serif;
+			text-align: center;
+			background-color: #222;
+			margin: 0;
+      color: #fff;
+		}
+    
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='white'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+      background-size: 12px;
+      background-position: 206px 17px;
+      padding-left: 12px !important;
+      background-repeat: no-repeat;
+      outline: none;
+    }
+    select:-moz-focusring {
+      transition-duration: 0s;
+      color: transparent;
+      text-shadow: 0 0 0 #fff;
+    }
+    option {
+      background-color: var(--c-3);
+      color: var(--c-f);
+    }
+    
+    .btn {
+      outline: none;
+      cursor: pointer;
+      padding: 8px;
+      margin: 10px;
+      width: 230px;
+      font-family: Verdana, Helvetica, sans-serif;
+      font-size: 19px;
+      background-color: #333;
+      color: white;
+      border: 0px solid white;
+      border-radius: 25px;
+    }
+    
+    img {
+      width: 158px;
+      max-width: 80%;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      margin: 3vh 0 5px 0;
+      animation: fi 1s;
+    }
+    
+    @keyframes fi {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+    }
+    
+    .main {
+      animation: fi 1.5s .7s both;
+    }
+    
+    a {
+      color: #fff;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+    ol {
+      margin: auto;
+      text-align: left;
+      display: inline-block;
+    }
+    
+    li::marker {
+      text-decoration: bold;
+      color: #09f;
+    }
+    
+    li {
+      margin: 5px;
+    }
+    
+    .container {
+      width: 80%;
+      max-width: 510px;
+      margin: auto;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #222;
+      overflow: hidden;
+    }
+    
+    .inst-button {
+      padding: 5px 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      ewt-install-dialog {
+        /*--mdc-theme-primary: #ffa000; /*buttons*/
+        --mdc-theme-surface: #333;
+        --mdc-dialog-heading-ink-color: #fff;
+        --mdc-dialog-content-ink-color: #ddd;
+        --mdc-text-field-fill-color: #ddd;
+      }
+    }
+	</style>
+<style></style></head>
+<body onload="checkSupported()">
+<div class="main">
+<h2>Welcome to the domino4 UF2 Bootloader web installer!</h2>
+
+<div id="flasher">
+
+<ol>
+  <li>Plug in your CWA to a USB port. We will install domino4 UF2 Bootloader to it.</li>
+  <li id="coms">Hit "Install" and select the correct COM port. <a onclick="showSerialHelp()">No device found?</a></li>
+</ol><br><br>
+
+<div class="container inst-button">
+  <esp-web-install-button
+    id="inst"
+    manifest="https://domino4com.github.io"
+  >
+    <button class="btn" slot="activate">Install</button>
+  </esp-web-install-button><br>
+
+  <!-- add new builds here -->
+<!-- 
+  <select id="ver" class="btn" onchange="setManifest()">
+
+    <optgroup label="Release">
+      <option data-manifest="/Users/bg/Downloads/m/manifest.json" data-ethernet="/Users/bg/Downloads/m/manifest.json">latest</option>
+
+
+  </optgroup></select><br><br>
+ -->
+ 
+</div>
+
+</div>
+<br>Powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a><br>
+
+<script>  
+  function setManifest() {
+    var sel = document.getElementById('ver');
+    var opt = sel.options[sel.selectedIndex];
+    var m = opt.dataset.manifest;
+}
+  
+    document.getElementById('inst').setAttribute('manifest',m);
+    document.getElementById('verstr').textContent = opt.text;
+  }
+  
+  function checkSupported() {
+    if (document.getElementById('inst').hasAttribute('install-unsupported')) unsupported();
+    else setManifest();
+  }
+  
+  function unsupported() {
+    document.getElementById('flasher').innerHTML = "Sorry, your browser is not yet supported!<br>Please try on Desktop Chrome or Edge.<br>"
+  }
+  
+  function showSerialHelp() {
+    document.getElementById('coms').innerHTML = `Hit "Install" and select the correct COM port.<br><br>
+    You might be missing the drivers for your board.<br>
+    Here are drivers for chips commonly used in ESP boards:<br>
+    <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers" target="_blank">CP2102 (square chip)</a><br>
+    <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank">CH34x (rectangular chip)</a><br><br>
+    Make sure your USB cable supports data transfer.<br><br>
+    `;
+  }
+</script>
+
+
+</div></body></html>
