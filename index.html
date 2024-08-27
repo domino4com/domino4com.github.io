@@ -124,7 +124,10 @@
 
 <ol>
   <li>Plug in your CWA to a USB port. We will install domino4 UF2 Bootloader to it.</li>
-  <li id="coms">Hit "Install" and select the correct COM port. <a onclick="showSerialHelp()">No device found?</a></li>
+  <li id="coms">Hit "Install" and select the correct COM port. 
+<!-- 	  <a onclick="showSerialHelp()">No device found?</a> -->
+  </li>
+	<li>If connection is troublesome, put the CWA into download mode: Press-and-hold "P", click on "R", release "P", red LED should come on.</li>
 </ol><br><br>
 
 <div class="container inst-button">
@@ -134,23 +137,9 @@
   >
     <button class="btn" slot="activate">Install</button>
   </esp-web-install-button><br>
-
-  <!-- add new builds here -->
-<!-- 
-  <select id="ver" class="btn" onchange="setManifest()">
-
-    <optgroup label="Release">
-      <option data-manifest="/Users/bg/Downloads/m/manifest.json" data-ethernet="/Users/bg/Downloads/m/manifest.json">latest</option>
-
-
-  </optgroup></select><br><br>
- -->
- 
 </div>
-
 </div>
-<br>Powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a><br>
-
+	
 <script>  
   function setManifest() {
     var sel = document.getElementById('ver');
