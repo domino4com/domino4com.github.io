@@ -14,7 +14,10 @@
 			text-align: center;
 			background-color: #222;
 			margin: 0;
-      color: #fff;
+      			color: #fff;
+			background-image: url( '/files/domino4_grey.svg' );
+      			background-repeat: no-repeat;
+      			background-position: bottom right, 10%, 10%;
 		}
     
     select {
@@ -118,16 +121,23 @@
 <style></style></head>
 <body onload="checkSupported()">
 <div class="main">
-<h2>Welcome to the domino4 UF2 Bootloader web installer!</h2>
+<h2>Welcome to the domino4 uf2 bootloader web installer!</h2>
 
 <div id="flasher">
 
 <ol>
-  <li>Plug in your CWA to a USB port. We will install domino4 UF2 Bootloader to it.</li>
-  <li id="coms">Hit "Install" and select the correct COM port. 
-<!-- 	  <a onclick="showSerialHelp()">No device found?</a> -->
+  <li>Plug in your CWA to a USB port. We will install domino4 uf2 bootloader to it.</li>
+  <li id="coms">Hit "Install" and select the correct serial port. 
+  <!-- 	  <a onclick="showSerialHelp()">No device found?</a> -->
   </li>
-	<li>If connection is troublesome, put the CWA into download mode: Press-and-hold "P", click on "R", release "P", red LED should come on.</li>
+  <li>If connection is troublesome, put the CWA into download mode:
+	<ul>
+      		<li>Press-and-hold &#x1F13F;</li>
+		<li>Click on &#x1F141;</li>
+		<li>Release &#x1F13F;</li>
+		<li>&#x1F534; should illuminate.</li>
+    	</ul>
+  </li>
 </ol><br><br>
 
 <div class="container inst-button">
