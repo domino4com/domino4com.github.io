@@ -1,6 +1,6 @@
 {
-    "name": "domino4",
-    "version": "2.1",
+    "name": "domino4 uf2 bootloader",
+    "version": "2.2",
     "new_install_prompt_erase": true,
     "builds": [
         {
