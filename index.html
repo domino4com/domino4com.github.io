@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-	<meta content="width=device-width" name="viewport">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta content="width=device-width" name="viewport">
   <meta name="theme-color" content="#222222">
-	<title>Install domino4 uf2 bootloader</title>
- <script
-  type="module"
-  src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+  <title>Install domino4 uf2 bootloader</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
   </script>
-	<style>
-		body {
-			font-family: Verdana, Helvetica, sans-serif;
-			text-align: center;
-			background-color: #222;
-			margin: 0;
-      			color: #fff;
-			background-image: url( '/files/domino4_grey.svg' );
-      			background-repeat: no-repeat;
-      			background-position: bottom right, 10%, 10%;
-		}
-    
+  <style>
+    body {
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      background-color: #222;
+      margin: 0;
+      color: #fff;
+      background-image: url('/files/domino4_grey.svg');
+      background-repeat: no-repeat;
+      background-position: bottom right, 10%, 10%;
+    }
+
     select {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -31,16 +32,18 @@
       background-repeat: no-repeat;
       outline: none;
     }
+
     select:-moz-focusring {
       transition-duration: 0s;
       color: transparent;
       text-shadow: 0 0 0 #fff;
     }
+
     option {
       background-color: var(--c-3);
       color: var(--c-f);
     }
-    
+
     .btn {
       outline: none;
       cursor: pointer;
@@ -54,8 +57,8 @@
       border: 0px solid white;
       border-radius: 25px;
     }
-    
-/*     img {
+
+    /*     img {
       width: 158px;
       max-width: 80%;
       image-rendering: pixelated;
@@ -63,37 +66,42 @@
       margin: 3vh 0 5px 0;
       animation: fi 1s;
     } */
-    
+
     @keyframes fi {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
-    
+
     .main {
       animation: fi 1.5s .7s both;
     }
-    
+
     a {
       color: #777;
       cursor: pointer;
-      text-decoration: none; 
+      text-decoration: none;
     }
-    
+
     ol {
       margin: auto;
       text-align: left;
       display: inline-block;
     }
-    
+
     li::marker {
       text-decoration: bold;
       color: #09f;
     }
-    
+
     li {
       margin: 5px;
     }
-    
+
     .container {
       width: 80%;
       max-width: 510px;
@@ -103,7 +111,7 @@
       background-color: #222;
       overflow: hidden;
     }
-    
+
     .inst-button {
       padding: 5px 0;
     }
@@ -117,117 +125,182 @@
         --mdc-text-field-fill-color: #ddd;
       }
     }
-	</style>
-<style></style></head>
+  </style>
+  <style></style>
+</head>
+
 <body onload="checkSupported()">
-<div class="main">
-<h2>Welcome to the domino4 uf2 bootloader web installer!</h2>
+  <div class="main">
+    <h2>Welcome to the domino4 uf2 bootloader web installer!</h2>
 
-<div id="flasher">
+    <div id="flasher">
 
-<ol>
-  <li>Plug in your CWA to a USB port. We will install domino4 uf2 bootloader to it.</li>
-  <li id="coms">Hit "Install" and select the correct serial port. 
-  <!-- 	  <a onclick="showSerialHelp()">No device found?</a> -->
-  </li>
-  <li>If connection is troublesome, put the CWA into download mode:
-	<ul>
-      		<li>Press-and-hold &#x1F13F;</li>
-		<li>Click &#x1F141;</li>
-		<li>Release &#x1F13F;</li>
-		<li><font color="#f00">&#x2600;</font> will continuously illuminate.</li>
-    	</ul>
-  </li>
-  <li>Click on &#x1F141; after successful install. A "CWA" drive will appear on your computer, <font color="#0f0">&#x2600;</font> will continuously illuminate and <font color="#f00">&#x2600;</font> will pulse.</li>
-</ol><br><br>
+      <ol>
+        <li>Plug in your CWA to a USB port. We will install domino4 uf2 bootloader to it.</li>
+        <li id="coms">Hit "Install" and select the correct serial port.
+          <!-- 	  <a onclick="showSerialHelp()">No device found?</a> -->
+        </li>
+        <li>If connection is troublesome, put the CWA into download mode:
+          <ul>
+            <li>Press-and-hold &#x1F13F;</li>
+            <li>Click &#x1F141;</li>
+            <li>Release &#x1F13F;</li>
+            <li>
+              <font color="#f00">&#x2600;</font> will continuously illuminate.
+            </li>
+          </ul>
+        </li>
+        <li>Click on &#x1F141; after successful install. A "CWA" drive will appear on your computer, <font color="#0f0">
+            &#x2600;</font> will continuously illuminate and <font color="#f00">&#x2600;</font> will pulse.</li>
+      </ol><br><br>
 
-<div class="container inst-button">
-  <esp-web-install-button
-    id="inst"
-    manifest="/files/manifest.json"
-  >
-    <button class="btn" slot="activate">Install</button>
-  </esp-web-install-button><br>
-</div>
-</div>
-	<br><br>
-	<h2>List of projects with readymade .uf2 files</h2>
+      <div class="container inst-button">
+        <esp-web-install-button id="inst" manifest="/files/manifest.json">
+          <button class="btn" slot="activate">Install</button>
+        </esp-web-install-button><br>
+      </div>
+    </div>
+    <br><br>
+    <h2>List of projects with readymade .uf2 files</h2>
 
-	<div id="flasher">
+    <div id="flasher">
 
-<ol>
-  <li>Connect your CWA to your computer via the USB-C port.</li>
-	<li>Click on the link to download the .uf2 file</li>
-  <li>Double-click on &#x1F141; to put your CWA in UF2 mode. A "CWA" drive will appear on your computer, <font color="#0f0">&#x2600;</font> will continuously illuminate and <font color="#f00">&#x2600;</font> will pulse.</li>
-  <li>Drag-and-drop the uf2 file to the CWA drive. The CWA will execute the project immediately.</li>
-</ol><br><br>
+      <ol>
+        <li>Connect your CWA to your computer via the USB-C port.</li>
+        <li>Click on the link to download the .uf2 file</li>
+        <li>Double-click on &#x1F141; to put your CWA in UF2 mode. A "CWA" drive will appear on your computer, <font
+            color="#0f0">&#x2600;</font> will continuously illuminate and <font color="#f00">&#x2600;</font> will pulse.
+        </li>
+        <li>Drag-and-drop the uf2 file to the CWA drive. The CWA will execute the project immediately.</li>
+      </ol><br><br>
 
-	
-	<style type="text/css">
-.tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;  margin-left: auto; margin-right: auto;}
-.tg td{background-color:#EBF5FF;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#444;
-  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{background-color:#409cff;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#fff;
-  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-hmp3{background-color:#D2E4FC;text-align:left;vertical-align:middle}
-.tg .tg-0lax{text-align:left;vertical-align:middle}
-		.tg .tg-j0tj{background-color:#D2E4FC;text-align:center;vertical-align:middle}
-		.contain {
-			max-width: 24px;
-			max-height: 24px;
-/*   object-fit: contain; */
-}
-</style>
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-0lax"><span style="font-weight:bold">Description</span></th>
-	  <th class="tg-0lax"><span style="font-weight:bold">Version</span></th>
-    <th class="tg-0lax"><span style="font-weight:bold">UF2</span></th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-hmp3"><span style="font-weight:400;font-style:normal;text-decoration:none"><a href="https://tinygs.com" target="_blank" rel="noopener noreferrer">TinyGS: Open Ground Station Network</a></span></td>
-	  	<td class="tg-j0tj">2403241</td>
-    <td class="tg-j0tj"><a href="/uf2s/tinygs.uf2" target="_blank" rel="noopener noreferrer"><img class="contain" width="*" src = "files/dl.svg"/></a></td>
-  </tr>
-	  <tr>
-    <td class="tg-hmp3"><span style="font-weight:400;font-style:normal;text-decoration:none"><a href="https://micropython.org" target="_blank" rel="noopener noreferrer">MicroPython</a></span></td>
-	<td class="tg-j0tj">1.23.0</td>
-    <td class="tg-j0tj"><a href="/uf2s/micropython.uf2" target="_blank" rel="noopener noreferrer"><img class="contain" src = "files/dl.svg"/></a></td>
-  </tr>
-</tbody>
-</table>
-	
-<script>  
-  function setManifest() {
-    var sel = document.getElementById('ver');
-    var opt = sel.options[sel.selectedIndex];
-    var m = opt.dataset.manifest;
-}
-  
-    document.getElementById('inst').setAttribute('manifest',m);
-    document.getElementById('verstr').textContent = opt.text;
+
+      <style type="text/css">
+        .tg {
+          border-collapse: collapse;
+          border-color: #9ABAD9;
+          border-spacing: 0;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .tg td {
+          background-color: #EBF5FF;
+          border-color: #9ABAD9;
+          border-style: solid;
+          border-width: 1px;
+          color: #444;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          overflow: hidden;
+          padding: 10px 5px;
+          word-break: normal;
+        }
+
+        .tg th {
+          background-color: #409cff;
+          border-color: #9ABAD9;
+          border-style: solid;
+          border-width: 1px;
+          color: #fff;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          font-weight: normal;
+          overflow: hidden;
+          padding: 10px 5px;
+          word-break: normal;
+        }
+
+        .tg .tg-hmp3 {
+          background-color: #D2E4FC;
+          text-align: left;
+          vertical-align: middle
+        }
+
+        .tg .tg-0lax {
+          text-align: left;
+          vertical-align: middle
+        }
+
+        .tg .tg-j0tj {
+          background-color: #D2E4FC;
+          text-align: center;
+          vertical-align: middle
+        }
+
+        .contain {
+          max-width: 24px;
+          max-height: 24px;
+          /*   object-fit: contain; */
+        }
+      </style>
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0lax"><span style="font-weight:bold">Description</span></th>
+            <th class="tg-0lax"><span style="font-weight:bold">Version</span></th>
+            <th class="tg-0lax"><span style="font-weight:bold">UF2</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-hmp3"><span style="font-weight:400;font-style:normal;text-decoration:none"><a
+                  href="https://tinygs.com" target="_blank" rel="noopener noreferrer">TinyGS: Open Ground Station
+                  Network</a></span></td>
+            <td class="tg-j0tj">2403241</td>
+            <td class="tg-j0tj"><a href="/uf2s/tinygs.uf2" target="_blank" rel="noopener noreferrer"><img
+                  class="contain" width="*" src="files/dl.svg" /></a></td>
+          </tr>
+          <tr>
+            <td class="tg-hmp3"><span style="font-weight:400;font-style:normal;text-decoration:none"><a
+                  href="https://micropython.org" target="_blank" rel="noopener noreferrer">MicroPython</a></span></td>
+            <td class="tg-j0tj">1.23.0</td>
+            <td class="tg-j0tj"><a href="/uf2s/micropython.uf2" target="_blank" rel="noopener noreferrer"><img
+                  class="contain" src="files/dl.svg" /></a></td>
+          </tr>
+          <tr>
+            <td class="tg-hmp3"><span style="font-weight:400;font-style:normal;text-decoration:none"><a
+                  href="https://en.wikipedia.org/wiki/I²C" target="_blank" rel="noopener noreferrer">I²C Scanner</a></span></td>
+            <td class="tg-j0tj">1</td>
+            <td class="tg-j0tj"><a href="/uf2s/I2C-Scanner.uf2" target="_blank" rel="noopener noreferrer"><img
+                  class="contain" src="files/dl.svg" /></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <script>
+        function setManifest() {
+          var sel = document.getElementById('ver');
+          var opt = sel.options[sel.selectedIndex];
+          var m = opt.dataset.manifest;
+        }
+
+        document.getElementById('inst').setAttribute('manifest', m);
+        document.getElementById('verstr').textContent = opt.text;
   }
-  
-  function checkSupported() {
-    if (document.getElementById('inst').hasAttribute('install-unsupported')) unsupported();
-    else setManifest();
-  }
-  
-  function unsupported() {
-    document.getElementById('flasher').innerHTML = "Sorry, your browser is not yet supported!<br>Please try on Desktop Chrome or Edge.<br>"
-  }
-  
-  function showSerialHelp() {
-    document.getElementById('coms').innerHTML = `Hit "Install" and select the correct COM port.<br><br>
+
+        function checkSupported() {
+          if (document.getElementById('inst').hasAttribute('install-unsupported')) unsupported();
+          else setManifest();
+        }
+
+        function unsupported() {
+          document.getElementById('flasher').innerHTML = "Sorry, your browser is not yet supported!<br>Please try on Desktop Chrome or Edge.<br>"
+        }
+
+        function showSerialHelp() {
+          document.getElementById('coms').innerHTML = `Hit "Install" and select the correct COM port.<br><br>
     You might be missing the drivers for your board.<br>
     Here are drivers for chips commonly used in ESP boards:<br>
     <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers" target="_blank">CP2102 (square chip)</a><br>
     <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank">CH34x (rectangular chip)</a><br><br>
     Make sure your USB cable supports data transfer.<br><br>
     `;
-  }
-</script>
+        }
+      </script>
 
 
-</div></body></html>
+    </div>
+</body>
+
+</html>
