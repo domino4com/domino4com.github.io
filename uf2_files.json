@@ -22,5 +22,11 @@
         "description": "Starter Kit.",
         "file": "STARTER.uf2",
         "help_link": "https://maxiq.space/starter-help"
-      }
+      },
+      {
+          "name": "QUESST",
+          "description": "QUESST.",
+          "file": "QUESST.uf2",
+          "help_link": "https://maxiq.space/QUESST-help"
+        }
   ]
