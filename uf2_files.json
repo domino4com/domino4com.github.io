@@ -1,0 +1,20 @@
+[
+    {
+      "name": "TinyGS",
+      "description": "TinyGS project for satellite communication.",
+      "file": "tinygs.uf2",
+      "help_link": "https://domino4com.github.io/tinygs-help"
+    },
+    {
+      "name": "MicroPython",
+      "description": "MicroPython firmware for IoT devices.",
+      "file": "micropython.uf2",
+      "help_link": "https://domino4com.github.io/micropython-help"
+    },
+    {
+      "name": "I2C Scanner",
+      "description": "I²C device scanner to detect devices on the bus.",
+      "file": "i2c_scanner.uf2",
+      "help_link": "https://domino4com.github.io/i2c-scanner-help"
+    }
+  ]
