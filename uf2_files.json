@@ -15,7 +15,7 @@
     },
     {
         "name": "MicroPython",
-        "version": "v1.23.0 (2024-06-02)"
+        "version": "v1.23.0 (2024-06-02)",
         "description": "Low-level Python operating system",
         "file": "micropython.uf2",
         "help_link": "https://micropython.org"
@@ -34,4 +34,4 @@
         "file": "QUESST.uf2",
         "help_link": "https://maxiq.space/QUESST-help"
     }
-  ]
+]
