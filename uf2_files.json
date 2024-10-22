@@ -30,7 +30,7 @@
     {
         "name": "QUESST",
         "version": "1.0",
-        "description": "Lockheed Martin X-59 QueSST ("Quiet SuperSonic Technology")",
+        "description": "Lockheed Martin X-59 QueSST (Quiet SuperSonic Technology)",
         "file": "QUESST.uf2",
         "help_link": "https://maxiq.space/QUESST-help"
     }
