@@ -18,9 +18,9 @@
           data.forEach(file => {
             let row = document.createElement('tr');
             row.innerHTML = `
-                            <td>${file.name}</td>
-                            <td>${file.version}</td>
-                            <td><a href="${file.help_link}">${file.description}</a></td>
+                            <td class="tg-hmp3">${file.name}</td>
+                            <td class="tg-j0tj">${file.version}</td>
+                            <td class="tg-j0tj"><a href="${file.help_link}">${file.description}</a></td>
                             <td class="tg-j0tj"><a href="uf2s/${file.file}" target="_blank" rel="noopener noreferrer"><img class="contain" src="files/dl.svg" /></a></td>
                         `;
             tableBody.appendChild(row);
@@ -308,10 +308,10 @@
       <table border="1" class="tg">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Version</th>
-            <th>Description</th>
-            <th>.uf2</th>
+            <th class="tg-0lax">Name</th>
+            <th class="tg-0lax">Version</th>
+            <th class="tg-0lax">Description</th>
+            <th class="tg-0lax">.uf2</th>
           </tr>
         </thead>
         <tbody id="uf2-table-body">
