@@ -31,7 +31,7 @@
         "name": "I²C Scanner",
         "version": "1.0",
         "description": "I²C device scanner to detect devices on the xBus",
-        "file": "i2c_scanner.uf2",
+        "file": "I2C-Scanner.uf2",
         "help_link": "https://maxiq.space/i2c-scanner-help"
     },
     {
