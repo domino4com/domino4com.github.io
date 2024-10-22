@@ -7,6 +7,13 @@
         "help_link": "https://maxiq.space/starter-help"
     },
     {
+        "name": "Soil Moisture Kit",
+        "version": "1.0",
+        "description": "MaxIQ Soil Moisure Application",
+        "file": "SOIL.uf2",
+        "help_link": "https://maxiq.space/soil-help"
+    },
+    {
         "name": "TinyGS",
         "version": "2403241",
         "description": "LoRa based Tiny Ground Station",
